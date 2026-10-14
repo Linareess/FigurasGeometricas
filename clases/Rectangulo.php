@@ -10,7 +10,6 @@ class Rectangulo extends FiguraGeometrica {
     }
 
     public function __destruct() {
-        // No hace falta nada especial
     }
 
     public function getLado2() {
