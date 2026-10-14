@@ -39,7 +39,7 @@ if ($tipo == 'triangulo') {
     <h1>Resultados</h1>
 
     <?php
-        echo '<p>Tipo de figura: ' . ucfirst($figura->getTipoFigura()) . '</p>';
+        echo '<p>Tipo de figura: ' . ($figura->getTipoFigura()) . '</p>';
         echo '<p>Descripción: ' . $figura . '</p>';
         echo '<p>Área: ' . round($figura->calcularArea(), 2) . '</p>';
         echo '<p>Perímetro: ' . round($figura->calcularPerimetro(), 2) . '</p>';

@@ -5,7 +5,6 @@ if (isset($_POST['tipoFigura'])) {
     if (isset($_SESSION['tipoFigura']) && $_SESSION['tipoFigura'] != $_POST['tipoFigura']) {
         unset($_SESSION['lado1'], $_SESSION['lado2'], $_SESSION['lado3']);
     }
-
     $_SESSION['tipoFigura'] = $_POST['tipoFigura'];
     header('Location: lados.php');
     exit;
@@ -26,7 +25,7 @@ $tipoActual = $_SESSION['tipoFigura'] ?? '';
     <form method="post" action="index.php">
         <p>Elige el tipo de figura:</p>
     <?php
-        $marcado = ' checked';
+        $marcado = 'checked';
 
         echo '<input type="radio" name="tipoFigura" value="triangulo"' . ($tipoActual == 'triangulo' ? $marcado : '') . '> Triángulo<br>';
         echo '<input type="radio" name="tipoFigura" value="rectangulo"' . ($tipoActual == 'rectangulo' ? $marcado : '') . '> Rectángulo<br>';

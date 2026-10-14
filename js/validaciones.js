@@ -1,4 +1,3 @@
-
 function validarCampo(campo, spanError) {
     valor = campo.value.trim();
 
@@ -22,7 +21,6 @@ function validarCampo(campo, spanError) {
     spanError.textContent = '';
     return true;
 }
-
 
 function validarTriangulo() {
     campo1 = document.getElementById('lado1');
@@ -54,7 +52,6 @@ function validarTriangulo() {
     spanError.textContent = '';
     return true;
 }
-
 function prepararCampo(idCampo, idError) {
     campo = document.getElementById(idCampo);
     spanError = document.getElementById(idError);
@@ -74,7 +71,7 @@ prepararCampo('lado2', 'errorLado2');
 prepararCampo('lado3', 'errorLado3');
 
 
-document.getElementById('formLados').onsubmit = function (evento) {
+document.getElementById('Lados').onsubmit = function (evento) {
     todoCorrecto = true;
     ids = ['1', '2', '3'];
 
