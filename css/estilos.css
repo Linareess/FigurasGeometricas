@@ -1,21 +1,157 @@
+:root {
+    --color-bg: #f3f4f6;
+    --color-surface: #ffffff;
+    --color-text: #1f2937;
+    --color-muted: #6b7280;
+    --color-border: #d1d5db;
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-error: #dc2626;
+    --radius: 12px;
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
-    font-family: Arial, sans-serif;
-    max-width: 400px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    max-width: 440px;
     margin: 30px auto;
+    padding: 0 16px;
+}
+
+h1 { font-size: 1.6rem; margin: 0 0 16px; }
+
+
+.tarjeta {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 16px;
 }
 
 header {
-    background-color: #eeeeee;
-    padding: 5px 10px;
-    margin-bottom: 20px;
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 12px 20px;
+    margin-bottom: 0.5px;
+}
+
+
+.campo { margin-bottom: 16px; }
+
+.campo label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
 }
 
 input[type="text"] {
-    padding: 5px;
-    margin: 5px 0;
+    width: 100%;
+    padding: 10px 12px;
+    font: inherit;
+    color: inherit;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-button {
-    padding: 6px 15px;
-    margin-top: 10px;
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
 }
+
+.error {
+    display: block;
+    min-height: 1.2em;
+    margin-top: 4px;
+    font-size: 0.875rem;
+    color: var(--color-error);
+}
+
+
+.opcion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.opcion:hover { background: #eff6ff; border-color: #93c5fd; }
+.opcion:has(input:checked) { background: #eff6ff; border-color: var(--color-primary); }
+.opcion input { accent-color: var(--color-primary); }
+
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 22px;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+                box-shadow 0.2s, transform 0.1s;
+}
+
+.btn:hover  { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn:focus-visible { outline: 3px solid rgba(37, 99, 235, 0.4); outline-offset: 2px; }
+
+.btn-primary {
+    color: #fff;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.45);
+}
+
+.btn-secondary {
+    color: var(--color-primary);
+    background: #eff6ff;
+    border-color: #bfdbfe;
+}
+.btn-secondary:hover { background: #dbeafe; border-color: #93c5fd; }
+
+.btn-ghost { color: var(--color-muted); background: transparent; }
+.btn-ghost:hover { color: var(--color-text); background: #e5e7eb; }
+
+.btn-block { width: 100%; }
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+.resultado {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+.resultado:last-of-type { border-bottom: none; }
+.resultado span:first-child { color: var(--color-muted); }
+.resultado span:last-child  { font-weight: 600; }
