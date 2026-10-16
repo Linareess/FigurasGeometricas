@@ -83,28 +83,30 @@ if (isset($_POST['lado1'])) {
 <body>
     <?php include 'header/header.php'; ?>
 
-    <form method="post" action="lados.php" id="Lados">
+    <form method="post" action="lados.php" id="Lados" class="tarjeta">
     <?php
-        if ($tipofigura == 'circulo') {
-            echo 'Radio: <input type="text" name="lado1" id="lado1" value="' . htmlspecialchars($lado1) . '"><br>';
-        } else {
-            echo 'Lado 1: <input type="text" name="lado1" id="lado1" value="' . htmlspecialchars($lado1) . '"><br>';
-        }
-        echo '<span id="errorLado1" style="color:red">' . $errorLado1 . '</span><br>';
+        $etiqueta1 = ($tipofigura == 'circulo') ? 'Radio' : 'Lado 1';
+        echo '<div class="campo"><label for="lado1">' . $etiqueta1 . '</label>';
+        echo '<input type="text" name="lado1" id="lado1" value="' . htmlspecialchars($lado1) . '">';
+        echo '<span class="error" id="errorLado1">' . $errorLado1 . '</span></div>';
 
         if ($tipofigura == 'rectangulo' || $tipofigura == 'triangulo') {
-            echo 'Lado 2: <input type="text" name="lado2" id="lado2" value="' . htmlspecialchars($lado2) . '"><br>';
-            echo '<span id="errorLado2" style="color:red">' . $errorLado2 . '</span><br>';
+            echo '<div class="campo"><label for="lado2">Lado 2</label>';
+            echo '<input type="text" name="lado2" id="lado2" value="' . htmlspecialchars($lado2) . '">';
+            echo '<span class="error" id="errorLado2">' . $errorLado2 . '</span></div>';
         }
 
         if ($tipofigura == 'triangulo') {
-            echo 'Lado 3: <input type="text" name="lado3" id="lado3" value="' . htmlspecialchars($lado3) . '"><br>';
-            echo '<span id="errorLado3" style="color:red">' . $errorLado3 . '</span><br>';
-            echo '<span id="errorTriangulo" style="color:red">' . $errorTriangulo . '</span><br>';
+            echo '<div class="campo"><label for="lado3">Lado 3</label>';
+            echo '<input type="text" name="lado3" id="lado3" value="' . htmlspecialchars($lado3) . '">';
+            echo '<span class="error" id="errorLado3">' . $errorLado3 . '</span>';
+            echo '<span class="error" id="errorTriangulo">' . $errorTriangulo . '</span></div>';
         }
     ?>
-        <br><button type="submit">Calcular</button>
+        <div class="acciones">
+            <button type="submit" class="btn btn-primary">Calcular</button>
+            <a href="index.php" class="btn btn-ghost">← Volver</a>
+        </div>
     </form>
-    <p><br><a href="index.php">Volver</a></p>
 </body>
 </html>
