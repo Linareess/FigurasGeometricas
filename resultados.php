@@ -34,7 +34,7 @@ if ($tipo == 'triangulo') {
     <link rel="stylesheet" href="./css/estilos.css">
 </head>
 <body>
-    <?php include 'header/header.php'; ?>
+    <!-- <?php include 'header/header.php'; ?> -->
 
     <h1>Resultados</h1>
 

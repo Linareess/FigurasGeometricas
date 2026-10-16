@@ -35,11 +35,11 @@ h1 { font-size: 1.6rem; margin: 0 0 16px; }
 }
 
 header {
-    background: var(--color-surface);
+    background: rgba(114, 114, 1, 0.8);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     padding: 12px 20px;
-    margin-bottom: 0.5px;
+    margin-bottom: 3px;
 }
 
 
