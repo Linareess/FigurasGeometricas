@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (isset($_POST['tipoFigura'])) {
     if (isset($_SESSION['tipoFigura']) && $_SESSION['tipoFigura'] != $_POST['tipoFigura']) {
         unset($_SESSION['lado1'], $_SESSION['lado2'], $_SESSION['lado3']);
@@ -9,7 +8,6 @@ if (isset($_POST['tipoFigura'])) {
     header('Location: lados.php');
     exit;
 }
-
 $tipoActual = $_SESSION['tipoFigura'] ?? '';
 ?>
 <!DOCTYPE html>
@@ -22,17 +20,21 @@ $tipoActual = $_SESSION['tipoFigura'] ?? '';
 <body>
     <h1>Figuras geométricas</h1>
 
-    <form method="post" action="index.php">
-        <p>Elige el tipo de figura:</p>
+    <form method="post" action="index.php" class="tarjeta">
+        <p><strong>Elige el tipo de figura:</strong></p>
     <?php
         $marcado = 'checked';
+        $figuras = ['triangulo' => 'Triángulo', 'rectangulo' => 'Rectángulo',
+                    'cuadrado' => 'Cuadrado', 'circulo' => 'Círculo'];
 
-        echo '<input type="radio" name="tipoFigura" value="triangulo"' . ($tipoActual == 'triangulo' ? $marcado : '') . '> Triángulo<br>';
-        echo '<input type="radio" name="tipoFigura" value="rectangulo"' . ($tipoActual == 'rectangulo' ? $marcado : '') . '> Rectángulo<br>';
-        echo '<input type="radio" name="tipoFigura" value="cuadrado"' . ($tipoActual == 'cuadrado' ? $marcado : '') . '> Cuadrado<br>';
-        echo '<input type="radio" name="tipoFigura" value="circulo"' . ($tipoActual == 'circulo' ? $marcado : '') . '> Círculo<br>';
+        foreach ($figuras as $valor => $nombre) {
+            echo '<label class="opcion"><input type="radio" name="tipoFigura" value="' . $valor . '" '
+                . ($tipoActual == $valor ? $marcado : '') . '> ' . $nombre . '</label>';
+        }
     ?>
-        <button type="submit">Continuar</button>
+        <div class="acciones">
+            <button type="submit" class="btn btn-primary btn-block">Continuar →</button>
+        </div>
     </form>
 </body>
 </html>
