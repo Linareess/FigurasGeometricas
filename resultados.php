@@ -38,14 +38,17 @@ if ($tipo == 'triangulo') {
 
     <h1>Resultados</h1>
 
+    <div class="tarjeta">
     <?php
-        echo '<p>Tipo de figura: ' . ($figura->getTipoFigura()) . '</p>';
-        echo '<p>Descripción: ' . $figura . '</p>';
-        echo '<p>Área: ' . round($figura->calcularArea(), 2) . '</p>';
-        echo '<p>Perímetro: ' . round($figura->calcularPerimetro(), 2) . '</p>';
+        echo '<div class="resultado"><span>Tipo de figura</span><span>' . $figura->getTipoFigura() . '</span></div>';
+        echo '<div class="resultado"><span>Descripción</span><span>' . $figura . '</span></div>';
+        echo '<div class="resultado"><span>Área</span><span>' . round($figura->calcularArea(), 2) . '</span></div>';
+        echo '<div class="resultado"><span>Perímetro</span><span>' . round($figura->calcularPerimetro(), 2) . '</span></div>';
     ?>
-
-    <p><a href="lados.php">Modificar los datos</a></p>
-    <p><a href="index.php">Elegir otra figura</a></p>
+        <div class="acciones">
+            <a href="lados.php" class="btn btn-primary">Modificar los datos</a>
+            <a href="index.php" class="btn btn-secondary">Elegir otra figura</a>
+        </div>
+    </div>
 </body>
 </html>
